@@ -22,8 +22,13 @@ with open("regional_tariffs.json","r", encoding="utf-8") as json_file:
         except ValueError:
             tariff = 0
         regional_tariffs_new[region] = tariff
+def calculate_net_profit(revenue, tariff):
+    net_prift = revenue - (revenue * (tariff / 100))
+    return net_prift
+for value in global_sales_new:
+    region = value["region"]
+    value["net_profit"] = calculate_net_profit(value["revenue"],regional_tariffs_new[region])
 print(global_sales_new)
-print(regional_tariffs_new)
 
 
 
