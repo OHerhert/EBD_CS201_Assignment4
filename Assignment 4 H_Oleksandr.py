@@ -42,6 +42,8 @@ with open("cleaned_sales_updated.csv","w", newline ="") as file:
     writer = csv.DictWriter(file, fieldnames=headings)
     writer.writeheader()
     writer.writerows(global_sales_new)
+
+
 category_net_profit = {}
 for transaction in global_sales_new:
     if transaction["product_category"] not in category_net_profit:
@@ -49,7 +51,9 @@ for transaction in global_sales_new:
         category_net_profit[transaction["product_category"]] += transaction["net_profit"]
     else:
         category_net_profit[transaction["product_category"]] += transaction["net_profit"]
-print(category_net_profit)
+
+average_net_profit_per_category = sum(category_net_profit.values()) / len(category_net_profit)
+average_net_profit_per_category_filtered = {category:value for category,value in category_net_profit.items() if value > average_net_profit_per_category}
 
 
 
