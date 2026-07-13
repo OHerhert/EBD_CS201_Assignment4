@@ -1,6 +1,7 @@
 import csv
 import json
 import pandas as pd
+import matplotlib.pyplot as plt
 global_sales_new =[]
 regional_tariffs_new = {}
 
@@ -67,7 +68,15 @@ with open("top_categories.json", "w", encoding="utf-8") as data:
 df = pd.DataFrame(average_net_profit_per_category_filtered_list)
 print(df)
 
-
+df.plot(
+    kind="bar",
+    x="category",
+    y="net_profit",
+    title= "Top categories bar chart",
+    legend = False
+)
+plt.ylabel("Net profit")
+plt.show()
 
 
 
