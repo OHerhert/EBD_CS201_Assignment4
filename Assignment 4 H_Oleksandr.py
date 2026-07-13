@@ -60,6 +60,9 @@ for key, value in average_net_profit_per_category_filtered.items():
     average_net_profit_per_category_filtered_list.append({"category":key,"net_profit":value})
 average_net_profit_per_category_filtered_list.sort(key=lambda x: x["net_profit"], reverse=True)
 
+with open("top_categories.json", "w", encoding="utf-8") as data:
+    json.dump(average_net_profit_per_category_filtered_list, data, indent=4)
+
 
 
 
