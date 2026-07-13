@@ -1,5 +1,6 @@
 import csv
 import json
+import pandas as pd
 global_sales_new =[]
 regional_tariffs_new = {}
 
@@ -62,6 +63,10 @@ average_net_profit_per_category_filtered_list.sort(key=lambda x: x["net_profit"]
 
 with open("top_categories.json", "w", encoding="utf-8") as data:
     json.dump(average_net_profit_per_category_filtered_list, data, indent=4)
+
+df = pd.DataFrame(average_net_profit_per_category_filtered_list)
+print(df)
+
 
 
 
