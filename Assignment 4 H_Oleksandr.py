@@ -31,8 +31,8 @@ with open("regional_tariffs.json","r", encoding="utf-8") as json_file:
 
 
 def calculate_net_profit(revenue, tariff):
-    net_prift = revenue - (revenue * (tariff / 100))
-    return net_prift
+    net_profit = revenue - (revenue * (tariff / 100))
+    return net_profit
 
 
 for value in global_sales_new:
